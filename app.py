@@ -1,46 +1,29 @@
-from flask import Flask,render_template,request,redirect,url_for
 import os
 import smtplib
 from email.mime.text import MIMEText
-import time
+from flask import Flask, request, redirect, url_for, render_template
+from threading import Thread
 
 EMAIL = "rp892422@gmail.com"
-APP_PASSWORD = "uwkm dtiw isai ypoo"
+APP_PASSWORD = "your_app_password"
 
 app = Flask(__name__)
 
-@app.route("/",methods=['GET','POST'])
+@app.route("/")
 def home():
     return render_template("index.html")
 
 
-@app.route("/submit",methods=['POST'])
-def Submit():
-
-    # user = request.form.get("name")
-    # mail = request.form.get("email")
-    # userMSG = request.form.get("message")
-    
-    # data = f"name:{user},mail:{mail},msg:{userMSG}\n"
-    
-    
-    # with open("user_detail.txt","a") as f:
-    #     f.write(data)
-    # return redirect(url_for("home"))
-    
-    user = request.form.get("name")
-    mail = request.form.get("email")
-    userMSG = request.form.get("message")
-
-    # 📩 Email content
+def send_email(user, mail, userMSG):
     subject = "New Form Message 🚀"
-    body = f"""
-    New Contact Form Portfolio Submission:
 
-    Name: {user}
-    Email: {mail}
-    Message: {userMSG}
-    """
+    body = f"""
+New Contact Form Portfolio Submission:
+
+Name: {user}
+Email: {mail}
+Message: {userMSG}
+"""
 
     msg = MIMEText(body)
     msg["Subject"] = subject
@@ -48,7 +31,7 @@ def Submit():
     msg["To"] = EMAIL
 
     try:
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+        with smtplib.SMTP("smtp.gmail.com", 587, timeout=10) as server:
             server.starttls()
             server.login(EMAIL, APP_PASSWORD)
             server.send_message(msg)
@@ -56,6 +39,16 @@ def Submit():
 
     except Exception as e:
         print("Error:", e)
+
+
+@app.route("/submit", methods=["POST"])
+def submit():
+    user = request.form.get("name")
+    mail = request.form.get("email")
+    userMSG = request.form.get("message")
+
+    # background thread
+    Thread(target=send_email, args=(user, mail, userMSG)).start()
 
     return redirect(url_for("home") + "#hero")
         
