@@ -18,12 +18,12 @@ def send_email(user, mail, userMSG):
     subject = "New Form Message 🚀"
 
     body = f"""
-New Contact Form Portfolio Submission:
+    New Contact Form Portfolio Submission:
 
-Name: {user}
-Email: {mail}
-Message: {userMSG}
-"""
+    Name: {user}
+    Email: {mail}
+    Message: {userMSG}
+    """
 
     msg = MIMEText(body)
     msg["Subject"] = subject
@@ -55,7 +55,7 @@ def submit():
  
 
 
-@app.route("/index  ")
+@app.route("/index")
 def portfolio():
     return render_template("index.html")
 
