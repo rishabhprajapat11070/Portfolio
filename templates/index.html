@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rishabh Chen — ML Engineer & Full-Stack Developer crafting intelligent systems." />
+  <meta name="keywords" content="portfolio, ML engineer, Python, FastAPI, machine learning" />
+  <title>Rishabh Prajapat</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <div id="loader">
+    <div class="loader-inner">
+      <span class="loader-name">Rishabh</span>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-logo">Rishabh</div>
+    <ul class="nav-links">
+      <li><a href="#hero"    class="nav-link" data-section="hero">Home</a></li>
+      <li><a href="#about"   class="nav-link" data-section="about">About</a></li>
+      <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+      <li><a href="#skills"  class="nav-link" data-section="skills">Skills</a></li>
+      <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#hero"     class="mob-link">Home</a></li>
+      <li><a href="#about"    class="mob-link">About</a></li>
+      <li><a href="#projects" class="mob-link">Projects</a></li>
+      <li><a href="#skills"   class="mob-link">Skills</a></li>
+      <li><a href="#contact"  class="mob-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <!-- Animated gradient orbs -->
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-orb orb-3"></div>
+
+    <!-- Floating particle canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="hero-content">
+      <p class="hero-greeting reveal-up">Hello, world. I'm</p>
+      <h1 class="hero-name">
+        <span class="name-line reveal-up delay-1">Rishabh</span>
+        <!-- <span class="name-line italic reveal-up delay-2">Chen.</span> -->
+      </h1>
+      <p class="hero-subtitle reveal-up delay-3">
+        <span id="typed-text"></span><span class="cursor-blink">|</span>
+      </p>
+      <div class="hero-cta reveal-up delay-4">
+        <a href="#projects" class="btn btn-primary">
+          <span>View Projects</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn btn-ghost">Contact Me</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="section-label reveal-left">/ About</div>
+    <div class="about-grid">
+      <!-- Portrait side -->
+      <div class="about-portrait reveal-left delay-1">
+        <div class="portrait-frame">
+          <div class="portrait-img">
+            <!-- SVG placeholder portrait -->
+              <img src="static/image/WhatsApp Image 2026-02-27 at 12.35.33 PM.jpeg" alt="Rishabh prajapat" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="portrait-badge">
+            <span class="badge-dot"></span>
+            Available for work
+          </div>
+        </div>
+      </div>
+
+      <!-- Text side -->
+      <div class="about-text reveal-right delay-1">
+        <h2 class="section-heading">Crafting intelligent<br /><em>experiences.</em></h2>
+        <p class="about-bio">
+          I'm a Machine Learning Engineer and Full-Stack Developer based in San Francisco.
+          I specialise in building production-grade ML pipelines, high-performance APIs,
+          and beautiful interfaces that make complex ideas feel effortless.
+        </p>
+        <p class="about-bio">
+          When I'm not training models or shipping features, I explore the intersection
+          of design and technology — believing that the best software is both powerful
+          and delightful.
+        </p>
+
+        <!-- Skill bars -->
+        <div class="skill-bars">
+          <div class="skill-bar-item" data-skill="Machine Learning" data-pct="92">
+            <div class="skill-bar-header">
+              <span>Machine Learning</span><span class="skill-pct">92%</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--target:92%"></div></div>
+          </div>
+          <div class="skill-bar-item" data-skill="Python / FastAPI" data-pct="95">
+            <div class="skill-bar-header">
+              <span>Python / FastAPI</span><span class="skill-pct">95%</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--target:95%"></div></div>
+          </div>
+          <div class="skill-bar-item" data-skill="JavaScript / React" data-pct="88">
+            <div class="skill-bar-header">
+              <span>JavaScript / React</span><span class="skill-pct">88%</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--target:88%"></div></div>
+          </div>
+          <div class="skill-bar-item" data-skill="Data Engineering" data-pct="80">
+            <div class="skill-bar-header">
+              <span>Data Engineering</span><span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--target:80%"></div></div>
+          </div>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-item reveal-up delay-2">
+            <span class="stat-num" data-target="8">0</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-item reveal-up delay-3">
+            <span class="stat-num" data-target="2">0</span>
+            <span class="stat-label">Years XP</span>
+          </div>
+          <!--<div class="stat-item reveal-up delay-4">
+            <span class="stat-num" data-target="0">0</span>
+            <span class="stat-label">Clients</span>
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <div class="section-label reveal-right">/ Projects</div>
+    <div class="section-header-center">
+      <h2 class="section-heading reveal-up">Selected <em>work.</em></h2>
+      <p class="section-sub reveal-up delay-1">A handful of things I've built and shipped.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <article class="project-card reveal-up delay-1" data-tilt>
+        <div class="card-thumb thumb-1">
+          <div class="card-thumb-inner">
+            <!-- <i class="fas fa-brain card-icon"></i>  -->
+          </div>
+          <div class="card-overlay">
+            <a href="#" class="overlay-btn" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="#" class="overlay-btn ghost" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">FastAPI</span>
+          </div>
+          <h3 class="card-title">FakeNEWS detector</h3>
+          <p class="card-desc">
+            End-to-end fake news detection system using NLP and ML,
+             served through a Flask-based low-latency API for real-time inference.
+          </p>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card reveal-up delay-2" data-tilt>
+        <div class="card-thumb thumb-2">
+          <div class="card-thumb-inner">
+            <i class="fas fa-chart-line card-icon"></i>
+          </div>
+          <div class="card-overlay">
+            <a href="#" class="overlay-btn" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="#" class="overlay-btn ghost" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag">React</span><span class="tag">D3.js</span><span class="tag">WebSocket</span>
+          </div>
+          <h3 class="card-title">MarketPulse</h3>
+          <p class="card-desc">
+            Live financial dashboard with ML-powered sentiment analysis on news feeds,
+            streaming tick data via WebSockets with sub-100ms latency.
+          </p>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card reveal-up delay-3" data-tilt>
+        <div class="card-thumb thumb-3">
+          <div class="card-thumb-inner">
+            <i class="fas fa-robot card-icon"></i>
+          </div>
+          <div class="card-overlay">
+            <a href="#" class="overlay-btn" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="#" class="overlay-btn ghost" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag">LangChain</span><span class="tag">OpenAI</span><span class="tag">Pinecone</span>
+          </div>
+          <h3 class="card-title">DocuMind</h3>
+          <p class="card-desc">
+            RAG-powered document intelligence platform — upload any PDF and converse
+            with it using semantic search + GPT-4 over a vector store.
+          </p>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project-card reveal-up delay-4" data-tilt>
+        <div class="card-thumb thumb-4">
+          <div class="card-thumb-inner">
+            <i class="fas fa-satellite-dish card-icon"></i>
+          </div>
+          <div class="card-overlay">
+            <a href="#" class="overlay-btn" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="#" class="overlay-btn ghost" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag">Kafka</span><span class="tag">Spark</span><span class="tag">Airflow</span>
+          </div>
+          <h3 class="card-title">StreamForge</h3>
+          <p class="card-desc">
+            End-to-end real-time data pipeline processing 500k events/sec with
+            fault-tolerant ingestion, transformation, and ML feature serving.
+          </p>
+        </div>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="project-card reveal-up delay-2" data-tilt>
+        <div class="card-thumb thumb-5">
+          <div class="card-thumb-inner">
+            <i class="fas fa-image card-icon"></i>
+          </div>
+          <div class="card-overlay">
+            <a href="#" class="overlay-btn" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="#" class="overlay-btn ghost" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag">Stable Diffusion</span><span class="tag">CUDA</span><span class="tag">Flask</span>
+          </div>
+          <h3 class="card-title">ArtEngine</h3>
+          <p class="card-desc">
+            Fine-tuned diffusion model for product photography — generates studio-quality
+            lifestyle shots from plain white-background images in seconds.
+          </p>
+        </div>
+      </article>
+
+      <!-- Project 6 -->
+      <article class="project-card reveal-up delay-3" data-tilt>
+        <div class="card-thumb thumb-6">
+          <div class="card-thumb-inner">
+            <i class="fas fa-shield-alt card-icon"></i>
+          </div>
+          <div class="card-overlay">
+            <a href="#" class="overlay-btn" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="#" class="overlay-btn ghost" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag">XGBoost</span><span class="tag">Pandas</span><span class="tag">PostgreSQL</span>
+          </div>
+          <h3 class="card-title">FraudShield</h3>
+          <p class="card-desc">
+            Transaction fraud detection system with 99.3% accuracy using ensemble methods,
+            explainable AI output, and real-time scoring API.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <div class="section-label reveal-left">/ Skills</div>
+    <div class="section-header-center">
+      <h2 class="section-heading reveal-up">My <em>toolkit.</em></h2>
+      <p class="section-sub reveal-up delay-1">Technologies I work with daily.</p>
+    </div>
+
+    <!-- Marquee rows -->
+    <div class="marquee-wrapper">
+      <div class="marquee-track marquee-left">
+        <div class="marquee-item"><i class="fab fa-python"></i> Python</div>
+        <div class="marquee-item"><i class="fab fa-js-square"></i> JavaScript</div>
+        <div class="marquee-item"><i class="fab fa-react"></i> React</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="" />&nbsp;PyTorch</div>
+        <div class="marquee-item"><i class="fab fa-docker"></i> Docker</div>
+        <div class="marquee-item"><i class="fab fa-aws"></i> AWS</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="" />&nbsp;TensorFlow</div>
+        <div class="marquee-item"><i class="fab fa-git-alt"></i> Git</div>
+        <!-- duplicate for seamless loop -->
+        <div class="marquee-item"><i class="fab fa-python"></i> Python</div>
+        <div class="marquee-item"><i class="fab fa-js-square"></i> JavaScript</div>
+        <div class="marquee-item"><i class="fab fa-react"></i> React</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="" />&nbsp;PyTorch</div>
+        <div class="marquee-item"><i class="fab fa-docker"></i> Docker</div>
+        <div class="marquee-item"><i class="fab fa-aws"></i> AWS</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="" />&nbsp;TensorFlow</div>
+        <div class="marquee-item"><i class="fab fa-git-alt"></i> Git</div>
+      </div>
+
+      <div class="marquee-track marquee-right">
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="" />&nbsp;FastAPI</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" />&nbsp;PostgreSQL</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="" />&nbsp;Redis</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="" />&nbsp;Kubernetes</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="" />&nbsp;Pandas</div>
+        <div class="marquee-item"><i class="fab fa-linux"></i> Linux</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" />&nbsp;TypeScript</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="" />&nbsp;MongoDB</div>
+        <!-- duplicate -->
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="" />&nbsp;FastAPI</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" />&nbsp;PostgreSQL</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="" />&nbsp;Redis</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="" />&nbsp;Kubernetes</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="" />&nbsp;Pandas</div>
+        <div class="marquee-item"><i class="fab fa-linux"></i> Linux</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" />&nbsp;TypeScript</div>
+        <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="" />&nbsp;MongoDB</div>
+      </div>
+    </div>
+
+    <!-- Specialty cards -->
+    <div class="specialty-grid">
+      <div class="specialty-card reveal-up delay-1">
+        <div class="spec-icon"><i class="fas fa-brain"></i></div>
+        <h4>Machine Learning</h4>
+        <p>Designing and deploying production-grade ML models — from data ingestion to model serving.</p>
+      </div>
+      <div class="specialty-card reveal-up delay-2">
+        <div class="spec-icon"><i class="fas fa-server"></i></div>
+        <h4>Backend Engineering</h4>
+        <p>High-performance APIs, microservices, and distributed systems built for scale and reliability.</p>
+      </div>
+      <div class="specialty-card reveal-up delay-3">
+        <div class="spec-icon"><i class="fas fa-palette"></i></div>
+        <h4>Frontend & UX</h4>
+        <p>Pixel-perfect, responsive interfaces with fluid animations and exceptional user experiences.</p>
+      </div>
+      <div class="specialty-card reveal-up delay-4">
+        <div class="spec-icon"><i class="fas fa-cloud"></i></div>
+        <h4>Cloud & DevOps</h4>
+        <p>CI/CD pipelines, containerisation, and cloud infrastructure on AWS and GCP.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="section-label reveal-right">/ Contact</div>
+    <div class="contact-grid">
+      <!-- Left info -->
+      <div class="contact-info reveal-left delay-1">
+        <h2 class="section-heading">Let's build<br /><em>something great.</em></h2>
+        <p class="contact-bio">
+          I'm always open to discussing new opportunities, interesting projects,
+          or just connecting over a virtual coffee.
+        </p>
+        <div class="contact-links">
+          <a href="rp892422@gmail.com" class="contact-link">
+            <i class="fas fa-envelope"></i>
+            <span>MAIl</span>
+          </a>
+          <a href="https://github.com/rishabhprajapat11070" target="_blank" rel="noopener" class="contact-link">
+            <i class="fab fa-github"></i>
+            <span>GITHUB</span>
+          </a>
+          <a href="https://www.linkedin.com/in/rishabh-prajapat-a251083b0/" target="_blank" rel="noopener" class="contact-link">
+            <i class="fab fa-linkedin"></i>
+            <span>LINKEDIN</span>
+          </a>
+          <!-- <a href="https://twitter.com" target="_blank" rel="noopener" class="contact-link">
+            <i class="fab fa-twitter"></i>
+            <span>@Rishabhchen_dev</span>
+          </a> -->
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div class="contact-form-wrap reveal-right delay-2">
+        <form  action="/submit" id="contactForm" method="POST" >
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" />
+            <span class="form-error" id="nameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" />
+            <span class="form-error" id="emailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project…"></textarea>
+            <span class="form-error" id="messageError"></span>
+          </div>
+          <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-loader" style="display:none"><i class="fas fa-spinner fa-spin"></i></span>
+            <i class="fas fa-paper-plane btn-icon"></i>
+          </button>
+          <p class="form-success" id="formSuccess" style="display:none">
+            <i class="fas fa-check-circle"></i> Message sent! I'll be in touch soon.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">Rishabh</span>
+      <p class="footer-copy">© 2025 Rishabh Prajapat. Designed & built with ♥</p>
+      <div class="footer-socials">
+        <a href="https://github.com/rishabhprajapat11070"   target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/rishabh-prajapat-a251083b0/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com"  target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+ <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
