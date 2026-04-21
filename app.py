@@ -5,7 +5,7 @@ from flask import Flask, request, redirect, url_for, render_template
 from threading import Thread
 
 EMAIL = "rp892422@gmail.com"
-APP_PASSWORD = "uwkm dtiw isai ypoo"
+APP_PASSWORD = "oviu swpy yhfj hffm"
 
 app = Flask(__name__)
 
