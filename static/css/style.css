@@ -513,7 +513,7 @@ section {
 .thumb-1 {
   background: linear-gradient(135deg, #0071e3 0%, #6e56cf 100%);
   /* Add this: */
-  background-image: url('../image/image.png');
+  background-image: url('../image/image copy.png');
   background-size: cover;
   background-position: center;
 }
